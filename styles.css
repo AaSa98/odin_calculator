@@ -1,58 +1,70 @@
-body{
-    background: linear-gradient(to right, #dadada, #666666);
+body {
+  background: linear-gradient(to right, #dadada, #666666);
 }
 
-.calc-grid{
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: auto;
-    min-height: 50vh;
-    background-color: #2d2c2e;
-    margin: 0px 400px;
-    border-radius: 5px;
-    max-width:max-content;
-}
-.small-btn{
-    grid-column: span 4;
+.calc-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 50vh;
+  background-color: #2d2c2e;
+  border-radius: 5px;
+  width: min-content;
+  gap: 10px;
+  margin: auto;
 }
 
-.btn-small{
-    width: 50px;
+button {
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  border: 1px solid #696969;
+  outline: none;
+  height: 30px;
+  aspect-ratio: 1/1;
+  margin: auto;
 }
 
-button{
-    border-radius: 50%;
-    cursor: pointer;
-    color: white;
-    border: 1px solid #696969;
-    outline: none;
-    height: 30px;
-    aspect-ratio: 1/1;
+button:active {
+  background-color: #acae9f;
 }
 
-button:active{
-    background-color: #acae9f;
+.output {
+  border: solid 5px #94948f;
+  background-color: #acae9f;
+  width: 80%;
+  align-self: center;
+  margin: auto;
 }
 
-.output{
-    border: solid 5px #94948f;
-    grid-column: span 4;
-    background-color: #acae9f;
-    /*margin: 0px 50px 0px 5px;*/
+.small-btn {
+    margin: 20px;
 }
 
-.btn-op{
-    grid-column: span 1;
-    background-color: #392619;
+.btn-small {
+  width: 50px;
 }
 
-.btn-num{
-    grid-column: span 1;
-    background-color: #101012;
+.math-btn {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: auto;
+  gap: 5px;
+  width: min-content;
+  margin: auto;
 }
 
-.btn-eq{
-    grid-column: span 1;
-    background-color: #cc9c4b;
+.btn-op {
+  grid-column: span 1;
+  background-color: #392619;
+}
+
+.btn-num {
+  grid-column: span 1;
+  background-color: #101012;
+}
+
+.btn-eq {
+  grid-column: span 1;
+  background-color: #cc9c4b;
 }
