@@ -4,7 +4,6 @@ body{
 
 .calc-grid{
     display: grid;
-    justify-content: center;
     align-items: center;
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: auto;
@@ -12,9 +11,14 @@ body{
     background-color: #2d2c2e;
     margin: 0px 400px;
     border-radius: 5px;
+    max-width:max-content;
 }
 .small-btn{
     grid-column: span 4;
+}
+
+.btn-small{
+    width: 50px;
 }
 
 button{
@@ -23,13 +27,19 @@ button{
     color: white;
     border: 1px solid #696969;
     outline: none;
-    height: max-content;
+    height: 30px;
+    aspect-ratio: 1/1;
+}
+
+button:active{
+    background-color: #acae9f;
 }
 
 .output{
     border: solid 5px #94948f;
     grid-column: span 4;
     background-color: #acae9f;
+    /*margin: 0px 50px 0px 5px;*/
 }
 
 .btn-op{
