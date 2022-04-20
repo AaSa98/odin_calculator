@@ -10,15 +10,24 @@ window.onload = function () {
   btn_del.addEventListener("click", () => del());
   var btn_ac = document.getElementById("ac");
   btn_ac.addEventListener("click", () => ac());
+  current.textContent = "0";
+  currentDefault = true;
 };
 
 function writeNum(numInput) {
-  current.textContent = current.textContent.concat(numInput);
-  console.log(current.textContent);
+  if (currentDefault == true) {
+    current.textContent = numInput;
+    console.log(current.textContent);
+    currentDefault = false;
+  } else {
+    current.textContent = current.textContent.concat(numInput);
+    console.log(current.textContent);
+  }
 }
 
 function del() {}
 
 function ac() {
-  current.textContent = 0;
+  current.textContent = "0";
+  currentDefault = true;
 }
