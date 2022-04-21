@@ -16,6 +16,7 @@ window.onload = function () {
 
 function writeNum(numInput) {
   if (currentDefault == true) {
+    current.textContent = "";
     current.textContent = numInput;
     console.log(current.textContent);
     currentDefault = false;
@@ -25,7 +26,17 @@ function writeNum(numInput) {
   }
 }
 
-function del() {}
+function del() {
+  if (currentDefault == true) {
+    current.textContent = "0";
+  } else {
+    current.textContent = current.textContent.slice(0, -1);
+    if (current.textContent.length == 0) {
+      current.textContent = "0";
+      currentDefault = true;
+    }
+  }
+}
 
 function ac() {
   current.textContent = "0";
