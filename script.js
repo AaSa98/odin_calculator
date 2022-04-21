@@ -1,5 +1,7 @@
 let current = document.querySelector(".current");
 console.log(current.textContent);
+let prev = document.querySelector(".prev");
+console.log(prev.textContent);
 
 window.onload = function () {
   var btn_num = document.querySelectorAll(".btn-num");
@@ -12,6 +14,10 @@ window.onload = function () {
   btn_ac.addEventListener("click", () => ac());
   current.textContent = "0";
   currentDefault = true;
+  var btn_op = document.querySelectorAll(".btn-op");
+  btn_op.forEach((btn) => {
+    btn.addEventListener("click", () => operation(btn.textContent));
+  })
 };
 
 function writeNum(numInput) {
@@ -39,6 +45,14 @@ function del() {
 }
 
 function ac() {
+console.log(current.textContent);
+current.textContent = "0";
+prev.textContent = "";
+  currentDefault = true;
+}
+
+function operation(buttonOP){
+  prev.textContent = current.textContent;
   current.textContent = "0";
   currentDefault = true;
 }
