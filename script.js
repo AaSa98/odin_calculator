@@ -1,23 +1,30 @@
 let current = document.querySelector(".current");
-console.log(current.textContent);
 let prev = document.querySelector(".prev");
-console.log(prev.textContent);
 
 window.onload = function () {
+  //Nummer-Buttons werden ausgewählt und writeNum-Funktion angehangen
   var btn_num = document.querySelectorAll(".btn-num");
   btn_num.forEach((btn) => {
     btn.addEventListener("click", () => writeNum(btn.textContent));
   });
+  //Zuweisung del-Funktion zu del-Button
   var btn_del = document.getElementById("del");
   btn_del.addEventListener("click", () => del());
+
+  //Zuweisung ac-Funktion zu ac-Button
   var btn_ac = document.getElementById("ac");
   btn_ac.addEventListener("click", () => ac());
+
+  //Setzt current auf 0 um nicht mit leerer Zeile zu starten
   current.textContent = "0";
+  //currentDefault um zu unterscheiden ob 0 Standardwert oder Eingabe ist
   currentDefault = true;
+
+  //Fügt Operation Buttons die operation-Funktion hinzu
   var btn_op = document.querySelectorAll(".btn-op");
   btn_op.forEach((btn) => {
     btn.addEventListener("click", () => operation(btn.textContent));
-  })
+  });
 };
 
 function writeNum(numInput) {
@@ -45,14 +52,24 @@ function del() {
 }
 
 function ac() {
-console.log(current.textContent);
-current.textContent = "0";
-prev.textContent = "";
+  console.log(current.textContent);
+  current.textContent = "0";
+  prev.textContent = "";
   currentDefault = true;
 }
 
-function operation(buttonOP){
+function operation(buttonOP) {
   prev.textContent = current.textContent;
   current.textContent = "0";
   currentDefault = true;
+  switch (buttonOP.textContent) {
+    case "÷":
+      break;
+    case "X":
+      break;
+    case "+":
+      break;
+    case "-":
+      break;
+  }
 }
