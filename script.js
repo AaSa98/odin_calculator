@@ -1,5 +1,6 @@
 let current = document.querySelector(".current");
 let prev = document.querySelector(".prev");
+let pressedOP = "";
 
 window.onload = function () {
   //Nummer-Buttons werden ausgewählt und writeNum-Funktion angehangen
@@ -25,6 +26,9 @@ window.onload = function () {
   btn_op.forEach((btn) => {
     btn.addEventListener("click", () => operation(btn.textContent));
   });
+
+  var btn_eq = document.querySelector(".btn-eq");
+  btn_eq.addEventListener("click", () => eq());
 };
 
 function writeNum(numInput) {
@@ -55,6 +59,7 @@ function ac() {
   console.log(current.textContent);
   current.textContent = "0";
   prev.textContent = "";
+  pressedOP = "";
   currentDefault = true;
 }
 
@@ -62,14 +67,29 @@ function operation(buttonOP) {
   prev.textContent = current.textContent;
   current.textContent = "0";
   currentDefault = true;
-  switch (buttonOP.textContent) {
-    case "÷":
-      break;
-    case "X":
-      break;
+  pressedOP = buttonOP;
+  console.log(pressedOP);
+}
+
+function eq() {
+  const numPrev = Number(prev.textContent);
+  const numCurr = Number(current.textContent);
+  let out;
+  switch (pressedOP) {
     case "+":
+      out = numPrev + numCurr;
       break;
     case "-":
+      out = numPrev - numCurr;
+      break;
+    case "X":
+      out = numPrev * numCurr;
+      break;
+    case "÷":
+      out = numPrev / numCurr;
       break;
   }
+  //Operations-Speicher am Ende wieder leeren!
+  ac();
+  current.textContent = out;
 }
