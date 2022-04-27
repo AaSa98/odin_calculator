@@ -1,6 +1,7 @@
 let current = document.querySelector(".current");
 let prev = document.querySelector(".prev");
 let pressedOP = "";
+let opIsPressed = false;
 
 window.onload = function () {
   //Nummer-Buttons werden ausgewählt und writeNum-Funktion angehangen
@@ -61,14 +62,19 @@ function ac() {
   prev.textContent = "";
   pressedOP = "";
   currentDefault = true;
+  opIsPressed = false;
 }
 
 function operation(buttonOP) {
+  if(opIsPressed == true)
+  {
+    eq();
+  }
+  opIsPressed = true;
   prev.textContent = current.textContent;
   current.textContent = "0";
   currentDefault = true;
   pressedOP = buttonOP;
-  console.log(pressedOP);
 }
 
 function eq() {
@@ -86,6 +92,11 @@ function eq() {
       out = numPrev * numCurr;
       break;
     case "÷":
+      if(numCurr == 0)
+      {
+        out = "You stupid?";
+        break;
+      }
       out = numPrev / numCurr;
       break;
   }
