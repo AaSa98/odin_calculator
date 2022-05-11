@@ -36,11 +36,9 @@ function writeNum(numInput) {
   if (currentDefault == true) {
     current.textContent = "";
     current.textContent = numInput;
-    console.log(current.textContent);
     currentDefault = false;
   } else {
     current.textContent = current.textContent.concat(numInput);
-    console.log(current.textContent);
   }
 }
 
@@ -57,7 +55,6 @@ function del() {
 }
 
 function ac() {
-  console.log(current.textContent);
   current.textContent = "0";
   prev.textContent = "";
   pressedOP = "";
